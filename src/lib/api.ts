@@ -5,7 +5,7 @@ const w = window as any;
 const RESOURCE_NAME = w.GetParentResourceName?.() ?? "hydrus";
 
 export function post(name: string, payload = {}) {
-  return fetch(`http://${RESOURCE_NAME}/${name}`, {
+  return fetch(`https://${RESOURCE_NAME}/${name}`, {
     method: "POST",
     body: JSON.stringify(payload),
   }).then((res) => res.json());
