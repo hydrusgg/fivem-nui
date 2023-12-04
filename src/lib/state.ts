@@ -34,7 +34,6 @@ bus.on("POPUP", (data) => {
 });
 
 bus.on("OVERLAY", ({ visible }) => {
-  console.log("overlay %b", visible);
   overlay.set(visible);
 });
 bus.on("OPEN", (all) => {
