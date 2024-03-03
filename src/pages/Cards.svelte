@@ -117,7 +117,7 @@
       {#each $credits as item}
         <li>
           <h1>{item.name}</h1>
-          <img src={item.image} alt="" />
+          <img src={item.image} crossorigin="anonymous" alt="" />
           <button on:click={() => createForm(item)}>Resgatar</button>
         </li>
       {/each}
