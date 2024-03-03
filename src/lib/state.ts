@@ -36,6 +36,7 @@ bus.on("POPUP", (data) => {
 bus.on("OVERLAY", ({ visible }) => {
   overlay.set(visible);
 });
+
 bus.on("OPEN", (all) => {
   visible.set(true);
   credits.set(all);
@@ -47,3 +48,12 @@ window.onkeydown = (event) => {
     post("CLOSE");
   }
 };
+
+if (isBrowser) {
+  bus.emit("OPEN", [
+    {
+      name: "Credit Name",
+      image: "https://cdn.jesteriruka.dev/imagens/sultan2.png",
+    },
+  ]);
+}
