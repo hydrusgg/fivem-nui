@@ -1,5 +1,6 @@
 <script lang="ts">
   import { callServer, post } from "../lib/api";
+  import { externalImage } from "../lib/external";
   import { credits, isBrowser, visible } from "../lib/state";
   import type { Credit, CreditForm } from "../lib/types";
 
@@ -117,7 +118,7 @@
       {#each $credits as item}
         <li>
           <h1>{item.name}</h1>
-          <img src={item.image} crossorigin="anonymous" alt="" />
+          <img src={externalImage(item.image)} crossorigin="anonymous" alt="" />
           <button on:click={() => createForm(item)}>Resgatar</button>
         </li>
       {/each}
