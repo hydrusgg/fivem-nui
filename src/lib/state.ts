@@ -24,6 +24,10 @@ function createStackTimer() {
 }
 
 bus.on("POPUP", (data) => {
+  if (!data || !data.name || !data.image) {
+    return;
+  }
+
   popups.update((previous) => {
     if (previous.length === 0) {
       setTimeout(createStackTimer, 5_000);
