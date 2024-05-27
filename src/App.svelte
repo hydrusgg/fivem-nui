@@ -20,7 +20,7 @@
       <h1>Você resgatou!</h1>
       <h2>{popup.name}</h2>
       {#key popup.image}
-        <img src={popup.image} alt="" />
+        <img src={popup.image} alt={String(popup.image) || "empty image"} />
       {/key}
     </div>
   </div>
