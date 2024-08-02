@@ -3,6 +3,7 @@
   import { fade } from "svelte/transition";
   import Cards from "./pages/Cards.svelte";
   import Overlay from "./pages/Overlay.svelte";
+  import { externalImage } from "./lib/external";
 
   if (resourceName) {
     const link = document.createElement("link");
@@ -20,7 +21,10 @@
       <h1>Você resgatou!</h1>
       <h2>{popup.name}</h2>
       {#key popup.image}
-        <img src={popup.image} alt={String(popup.image) || "empty image"} />
+        <img
+          src={externalImage(popup.image)}
+          alt={String(popup.image) || "empty image"}
+        />
       {/key}
     </div>
   </div>
