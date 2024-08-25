@@ -10,6 +10,10 @@ export function externalImage(src: string) {
       return url.toString();
     }
 
+    if (url.host.endsWith("hydrus.gg")) {
+      return url.toString();
+    }
+
     if (!url.host.startsWith("cfx-nui")) {
       const proxy = new URL("https://external.jesteriruka.dev");
       const protocol = url.protocol.slice(0, -1);
