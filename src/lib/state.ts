@@ -9,10 +9,7 @@ export const visible = writable(isBrowser);
 export const popups = writable<Popup[]>([]);
 export const overlay = writable(false);
 export const credits = writable<Credit[]>([]);
-
-if (isBrowser) {
-  Object.assign(window, { bus });
-}
+export const iframe = writable("");
 
 function createStackTimer() {
   popups.update((prev) => {
@@ -41,6 +38,10 @@ bus.on("OVERLAY", ({ visible }) => {
   overlay.set(visible);
 });
 
+bus.on("IFRAME", (url) => {
+  iframe.set(url);
+});
+
 bus.on("OPEN", (all) => {
   visible.set(true);
   credits.set(all);
@@ -48,12 +49,15 @@ bus.on("OPEN", (all) => {
 
 window.onkeydown = (event) => {
   if (event.key === "Escape") {
+    iframe.set("");
     visible.set(false);
     post("CLOSE");
   }
 };
 
 if (isBrowser) {
+  Object.assign(window, { bus });
+
   bus.emit("OPEN", [
     {
       name: "Credit Name",

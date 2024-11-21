@@ -94,11 +94,9 @@ button {
 #cards li:hover {
   border-color: var(--primary);
   border-radius: 0.75rem;
-  background: linear-gradient(
-    180deg,
-    rgba(14, 14, 14, 0.7) 0%,
-    var(--primary-gradient) 100%
-  );
+  background: linear-gradient(180deg,
+      rgba(14, 14, 14, 0.7) 0%,
+      var(--primary-gradient) 100%);
 }
 
 #cards li button {
@@ -152,7 +150,7 @@ button {
   align-items: start;
 }
 
-#form > .error-text {
+#form>.error-text {
   width: 100%;
   text-align: center;
   margin-bottom: 0.5rem;
@@ -254,4 +252,28 @@ button {
   border-radius: 0.75rem;
   width: 24rem;
   aspect-ratio: 1/1;
+}
+
+#custom-iframe {
+  width: 90vw;
+  height: 90vh;
+}
+
+#iframe-header {
+  background: #1a191a;
+  height: 1.5rem;
+  border-radius: 5px 5px 0 0;
+  width: 90vw;
+  display: flex;
+  align-items: center;
+  padding: 0 0.5rem;
+  box-sizing: border-box;
+}
+
+#iframe-header button[data-action="close"] {
+  appearance: none;
+  background-color: rgb(225, 28, 7);
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
 }
