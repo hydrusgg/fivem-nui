@@ -34,6 +34,7 @@
         src={$iframe}
         frameborder="0"
         title="Custom iframe"
+        allow="clipboard-write"
       />
     </div>
   </div>
